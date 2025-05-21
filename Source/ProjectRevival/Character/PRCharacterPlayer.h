@@ -3,17 +3,15 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/GameModeBase.h"
-#include "PRGameMode.generated.h"
+#include "Character/PRCharacterBase.h"
+#include "PRCharacterPlayer.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class PROJECTREVIVAL_API APRGameMode : public AGameModeBase
+class PROJECTREVIVAL_API APRCharacterPlayer : public APRCharacterBase
 {
 	GENERATED_BODY()
-
-public:
-	APRGameMode();
+	
 };
