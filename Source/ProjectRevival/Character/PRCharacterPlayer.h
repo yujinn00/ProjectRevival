@@ -221,10 +221,6 @@ private:
 
 // Score Section.
 private:
-	// 몬스터의 킬 스코어 변수.
-	UPROPERTY(VisibleAnywhere, Category = Score)
-	int32 KillScore = 0;
-
 	// 게임 모드로부터 몬스터가 죽었다는 신호를 받았을 때 호출될 함수.
 	// 몬스터가 죽을 때 호출하여 킬 스코어를 증가시키는 함수.
 	UFUNCTION()

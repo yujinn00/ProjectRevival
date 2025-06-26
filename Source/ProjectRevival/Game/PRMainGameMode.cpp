@@ -46,9 +46,6 @@ void APRMainGameMode::MonsterKilled()
 		return;
 	}
 
-	// 내부 킬 스코어 증가.
-	CurrentKillScore += 100;
-
 	// 킬 스코어가 필요 조건에 도달했는지 확인.
 	if (CurrentKillScore >= RequiredKillScoreForBoss)
 	{

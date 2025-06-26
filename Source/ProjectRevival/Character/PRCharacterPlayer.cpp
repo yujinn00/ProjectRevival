@@ -225,7 +225,7 @@ void APRCharacterPlayer::BeginPlay()
 	}
 
 	// 게임 시작 시, UI에 킬 스코어의 초기값인 0을 브로드캐스트.
-	OnKillScoreChanged.Broadcast(KillScore);
+	OnKillScoreChanged.Broadcast(GameMode->GetCurrentKillScore());
 }
 
 void APRCharacterPlayer::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
@@ -723,9 +723,14 @@ void APRCharacterPlayer::SetDead()
 
 void APRCharacterPlayer::IncrementKillScore()
 {
-	// 킬 스코어를 증가시키고, 변경 이벤트를 브로드캐스트.
-	KillScore += 100;
-	OnKillScoreChanged.Broadcast(KillScore);
+	APRMainGameMode* GameMode = Cast<APRMainGameMode>(UGameplayStatics::GetGameMode(this));
+	if (GameMode)
+	{
+		// 킬 스코어를 증가시키고, 변경 이벤트를 브로드캐스트.
+		GameMode->SetCurrentKillScore(GameMode->GetCurrentKillScore() + 100);
+		OnKillScoreChanged.Broadcast(GameMode->GetCurrentKillScore());
+	}
+
 }
 
 bool APRCharacterPlayer::CanJumpInternal_Implementation() const

@@ -20,6 +20,11 @@ class PROJECTREVIVAL_API APRMainGameMode : public AGameModeBase
 public:
 	APRMainGameMode();
 
+// Getter/Setter.
+public:
+	FORCEINLINE int32 GetCurrentKillScore() const { return CurrentKillScore; }
+	FORCEINLINE void SetCurrentKillScore(int32 NewKillScore) { CurrentKillScore = NewKillScore; }
+
 // End Section.
 public:
 	// 게임이 종료될 때 호출할 함수.
